@@ -4,6 +4,7 @@
 # Author: tteck (tteckster)
 # License: MIT
 # https://github.com/tteck/Proxmox/raw/main/LICENSE
+# Modified to be hardcoded to install zadam/trilium:0.63.7 and allow migration to TriliumNext
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -19,9 +20,10 @@ $STD apt-get install -y sudo
 $STD apt-get install -y mc
 msg_ok "Installed Dependencies"
 
-RELEASE=$(curl -s https://api.github.com/repos/zadam/trilium/releases/latest |
-  grep "tag_name" |
-  awk '{print substr($2, 3, length($2)-4) }')
+#RELEASE=$(curl -s https://api.github.com/repos/zadam/trilium/releases/latest |
+#  grep "tag_name" |
+#  awk '{print substr($2, 3, length($2)-4) }')
+RELEASE=0.63.7
 
 msg_info "Installing Trilium"
 wget -q https://github.com/zadam/trilium/releases/download/v$RELEASE/trilium-linux-x64-server-$RELEASE.tar.xz
