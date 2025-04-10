@@ -23,7 +23,7 @@ msg_ok "Installed Dependencies"
 #RELEASE=$(curl -s https://api.github.com/repos/zadam/trilium/releases/latest |
 #  grep "tag_name" |
 #  awk '{print substr($2, 3, length($2)-4) }')
-RELEASE=0.63.7
+RELEASE=0.59.4
 
 msg_info "Installing Trilium"
 wget -q https://github.com/zadam/trilium/releases/download/v$RELEASE/trilium-linux-x64-server-$RELEASE.tar.xz
